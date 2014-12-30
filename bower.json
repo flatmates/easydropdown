@@ -1,8 +1,8 @@
 {
-  "name": "easydropdown",
-  "version": "2.1.4",
-  "main": "jquery.easydropdown.min.js",
+  "name": "selectbox",
+  "version": "2.1.5",
+  "main": "jquery.selectbox.min.js",
   "dependencies": {
-    "jquery": ">=1.7"
+    "jquery": "1.11.2"
   }
 }

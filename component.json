@@ -1,9 +1,9 @@
 {
-  "name": "easydropdown",
-  "version": "2.1.4",
-  "main": "src/jquery.easydropdown.js",
+  "name": "selectbox",
+  "version": "2.1.5",
+  "main": "src/jquery.selectbox.js",
   "scripts": [
-  	"src/jquery.easydropdown.js"
+  	"src/jquery.selectbox.js"
   ],
   "styles": [
   	"themes/easydropdown.css"
