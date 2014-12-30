@@ -146,5 +146,7 @@ Enable the dropdown.
 Remove all generated elements and unbind all handlers.
 + .easyDropDown('select', index/value)
 Programmatically select option by index (integer) or value (string).
++ .easyDropDown('update')
+Update easydropdown with the underlying input value.
 + .val()
 Get selected value.

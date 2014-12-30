@@ -10,7 +10,7 @@
 
 
 (function($){
-	
+
 	function EasyDropDown(){
 		this.isField = true,
 		this.down = false,
@@ -319,7 +319,7 @@
 			var self = this;
 			
 			if(typeof index === 'string'){
-				index = self.$select.find('option[value='+index+']').index() - 1;
+				index = self.$select.find('option[value='+index+']').index();
 			};
 			
 			var	option = self.options[index],
@@ -421,6 +421,11 @@
 			self.disabled = false;
 			self.$container.removeClass('disabled');
 			self.$select.attr('disabled',false);
+		},
+
+		update: function() {
+			var self = this;
+			self.select(self.$select.find('option:selected').index());
 		}
 	};
 	
