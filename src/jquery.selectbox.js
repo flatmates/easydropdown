@@ -10,6 +10,7 @@
 
 
 (function($){
+	'use strict'
 
 	function SelectBox(){
 		this.isField = true,
@@ -108,7 +109,7 @@
 			
 			self.maxHeight = 0;
 			
-			for(i = 0; i < self.$items.length; i++){
+			for(var i = 0; i < self.$items.length; i++){
 				var $item = self.$items.eq(i);
 				self.maxHeight += $item.outerHeight();
 				if(self.cutOff == i+1){
@@ -119,9 +120,12 @@
 		
 		bindTouchHandlers: function(){
 			var	self = this;
-			self.$container.on('click.selectBox',function(){
-				self.$select.focus();
-			});
+			self.$container.on('click.selectBox',function(e){
+				var event = document.createEvent('MouseEvents');
+				event.initMouseEvent('mousedown', true, true, window);
+				self.$select.get(0).dispatchEvent(event);
+ 				self.$select.focus();
+ 			});
 			self.$select.on({
 				change: function(){
 					var	$selected = $(this).find('option:selected'),
@@ -338,6 +342,7 @@
 				index: index,
 				title: option.title
 			};
+			var i = undefined
 			self.focusIndex = i;
 			if(typeof self.onChange === 'function'){
 				self.onChange.call(self.$select[0],{
@@ -358,7 +363,7 @@
 					return self.options[i].title.toUpperCase();
 				};
 				
-			for(i = 0; i < self.options.length; i++){
+			for(var i = 0; i < self.options.length; i++){
 				var title = getTitle(i);
 				if(title.indexOf(self.query) == 0){
 					lock(i);
@@ -476,7 +481,7 @@
 		};
 		
 		$('select.dropdown').each(function(){
-			var json = $(this).attr('data-settings');
+			var json = $(this).attr('data-settings'),
 				settings = json ? $.parseJSON(json) : {}; 
 			instantiate(this, settings);
 		});
