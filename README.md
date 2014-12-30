@@ -4,6 +4,8 @@
 ### What Is It?
 
 SelectBox is a jQuery plugin that effortlessly turns humble <select> elements into styleable drop-down menus for use in forms or general UI/navigation.
+
+This is a fork of the [easydropdown](https://github.com/patrickkunka/easydropdown) plugin.
 	
 It's like Chosen but with only the essential features:
 
