@@ -26,7 +26,7 @@
 	
 		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 		<script src="src/jquery-1.11.2.min.js"></script>
-		<script src="src/jquery.easydropdown.js"></script>
+		<script src="src/jquery.selectbox.js"></script>
 		<title>EasyDropDown - A Drop-down Builder for Styleable Inputs and Menus</title>
 	</head>
 	<body>
@@ -354,7 +354,7 @@
 					<pre class="prettyprint">$(function(){
 	var $selects = $('select');
 						
-	$selects.easyDropDown({
+	$selects.selectBox({
 		cutOff: 10,
 		wrapperClass: 'my-dropdown-class',
 		onChange: function(selected){
@@ -396,15 +396,15 @@
 				
 				<h3>Methods</h3>
 				<ul class="text">
-					<li><strong>.easyDropDown(</strong>'disable'<strong>)</strong><br/>
+					<li><strong>.selectBox(</strong>'disable'<strong>)</strong><br/>
 						Disable the dropdown.</li>
-					<li><strong>.easyDropDown(</strong>'enable'<strong>)</strong><br/>
+					<li><strong>.selectBox(</strong>'enable'<strong>)</strong><br/>
 						Enable the dropdown.</li>
-					<li><strong>.easyDropDown(</strong>'destroy'<strong>)</strong><br/>
+					<li><strong>.selectBox(</strong>'destroy'<strong>)</strong><br/>
 						Remove all generated elements and unbind all handlers.</li>
-					<li><strong>.easyDropDown(</strong>'select', <em>index/value</em><strong>)</strong><br/>
+					<li><strong>.selectBox(</strong>'select', <em>index/value</em><strong>)</strong><br/>
 						Programmatically select option by index (integer) or value (string).</li>
-					<li><strong>.easyDropDown(</strong>'update', <em>index/value</em><strong>)</strong><br/>
+					<li><strong>.selectBox(</strong>'update', <em>index/value</em><strong>)</strong><br/>
 						Programmatically update the underlying value of option.</li>
 					<li><strong>.val()</strong><br/>
 						Get selected value.</li>

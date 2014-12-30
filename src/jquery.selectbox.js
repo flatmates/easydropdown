@@ -11,7 +11,7 @@
 
 (function($){
 
-	function EasyDropDown(){
+	function SelectBox(){
 		this.isField = true,
 		this.down = false,
 		this.inFocus = false,
@@ -24,8 +24,8 @@
 		this.onChange = null;
 	};
 	
-	EasyDropDown.prototype = {
-		constructor: EasyDropDown,
+	SelectBox.prototype = {
+		constructor: SelectBox,
 		instances: {},
 		init: function(domNode, settings){
 			var	self = this;
@@ -119,7 +119,7 @@
 		
 		bindTouchHandlers: function(){
 			var	self = this;
-			self.$container.on('click.easyDropDown',function(){
+			self.$container.on('click.selectBox',function(){
 				self.$select.focus();
 			});
 			self.$select.on({
@@ -149,21 +149,21 @@
 			var	self = this;
 			self.query = '';
 			self.$container.on({
-				'click.easyDropDown': function(){
+				'click.selectBox': function(){
 					if(!self.down && !self.disabled){
 						self.open();
 					} else {
 						self.close();
 					};
 				},
-				'mousemove.easyDropDown': function(){
+				'mousemove.selectBox': function(){
 					if(self.keyboardMode){
 						self.keyboardMode = false;
 					};
 				}
 			});
 			
-			$('body').on('click.easyDropDown.'+self.id,function(e){
+			$('body').on('click.selectBox.'+self.id,function(e){
 				var $target = $(e.target),
 					classNames = self.wrapperClass.split(' ').join('.');
 
@@ -173,19 +173,19 @@
 			});
 
 			self.$items.on({
-				'click.easyDropDown': function(){
+				'click.selectBox': function(){
 					var index = $(this).index();
 					self.select(index);
 					self.$select.focus();
 				},
-				'mouseover.easyDropDown': function(){
+				'mouseover.selectBox': function(){
 					if(!self.keyboardMode){
 						var $t = $(this);
 						$t.addClass('focus').siblings().removeClass('focus');
 						self.focusIndex = $t.index();
 					};
 				},
-				'mouseout.easyDropDown': function(){
+				'mouseout.selectBox': function(){
 					if(!self.keyboardMode){
 						$(this).removeClass('focus');
 					};
@@ -193,15 +193,15 @@
 			});
 
 			self.$select.on({
-				'focus.easyDropDown': function(){
+				'focus.selectBox': function(){
 					self.$container.addClass('focus');
 					self.inFocus = true;
 				},
-				'blur.easyDropDown': function(){
+				'blur.selectBox': function(){
 					self.$container.removeClass('focus');
 					self.inFocus = false;
 				},
-				'keydown.easyDropDown': function(e){
+				'keydown.selectBox': function(e){
 					if(self.inFocus){
 						self.keyboardMode = true;
 						var key = e.keyCode;
@@ -247,14 +247,14 @@
 						};
 					};
 				},
-				'keyup.easyDropDown': function(){
+				'keyup.selectBox': function(){
 					self.resetQuery = setTimeout(function(){
 						self.query = '';
 					},1200);
 				}
 			});
 			
-			self.$dropDown.on('scroll.easyDropDown',function(e){
+			self.$dropDown.on('scroll.selectBox',function(e){
 				if(self.$dropDown[0].scrollTop >= self.$dropDown[0].scrollHeight - self.maxHeight){
 					self.$container.addClass('bottom');
 				} else {
@@ -263,7 +263,7 @@
 			});
 			
 			if(self.$form.length){
-				self.$form.on('reset.easyDropDown', function(){
+				self.$form.on('reset.selectBox', function(){
 					var active = self.hasLabel ? self.label : self.options[0].title;
 					self.$active.text(active);
 				});
@@ -278,7 +278,7 @@
 				.add(self.$items)
 				.add(self.$form)
 				.add(self.$dropDown)
-				.off('.easyDropDown');
+				.off('.selectBox');
 			$('body').off('.'+self.id);
 		},
 		
@@ -430,8 +430,8 @@
 	};
 	
 	var instantiate = function(domNode, settings){
-			domNode.id = !domNode.id ? 'EasyDropDown'+rand() : domNode.id;
-			var instance = new EasyDropDown();
+			domNode.id = !domNode.id ? 'SelectBox'+rand() : domNode.id;
+			var instance = new SelectBox();
 			if(!instance.instances[domNode.id]){
 				instance.instances[domNode.id] = instance;
 				instance.init(domNode, settings);
@@ -441,14 +441,14 @@
 			return ('00000'+(Math.random()*16777216<<0).toString(16)).substr(-6).toUpperCase();
 		};
 	
-	$.fn.easyDropDown = function(){
+	$.fn.selectBox = function(){
 		var args = arguments,
 			dataReturn = [],
 			eachReturn;
 			
 		eachReturn = this.each(function(){
 			if(args && typeof args[0] === 'string'){
-				var data = EasyDropDown.prototype.instances[this.id][args[0]](args[1], args[2]);
+				var data = SelectBox.prototype.instances[this.id][args[0]](args[1], args[2]);
 				if(data)dataReturn.push(data);
 			} else {
 				instantiate(this, args[0]);

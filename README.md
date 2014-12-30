@@ -1,11 +1,11 @@
 > NB: This project is not currently under developement or maintainance. Unfortunately I do not have time to devote to it at the moment, but a v3.0 rewrite will happen at some point in the future. Issues have been disabled for now, but I would recommend reviewing the pending pull requests to get an idea of which issues may affect your project and the neccessary fixes that have been generously contributed by the community. Unfortunately I can not respond to any support questions regarding this plugin. Thank you.
 
-# EasyDropDown
+# SelectBox
 ### A Drop-down Builder For Styled Inputs and Menus
 
 ### What Is It?
 
-EasyDropDown is a jQuery plugin that effortlessly turns humble <select> elements into styleable drop-down menus for use in forms or general UI/navigation.
+SelectBox is a jQuery plugin that effortlessly turns humble <select> elements into styleable drop-down menus for use in forms or general UI/navigation.
 	
 It's like Chosen but with only the essential features:
 
@@ -107,7 +107,7 @@ Alternatively, by not using the class 'dropdown' you can instantiate your dropdo
 	$(function(){
 		var $selects = $('select');
 						
-		$selects.easyDropDown({
+		$selects.selectBox({
 			cutOff: 10,
 			wrapperClass: 'my-dropdown-class',
 			onChange: function(selected){
@@ -138,15 +138,15 @@ Fallback to native UI on touch-enabled devices (default true).
 
 ###Methods
 
-+ .easyDropDown('disable')
++ .selectBox('disable')
 Disable the dropdown.
-+ .easyDropDown('enable')
++ .selectBox('enable')
 Enable the dropdown.
-+ .easyDropDown('destroy')
++ .selectBox('destroy')
 Remove all generated elements and unbind all handlers.
-+ .easyDropDown('select', index/value)
++ .selectBox('select', index/value)
 Programmatically select option by index (integer) or value (string).
-+ .easyDropDown('update')
++ .selectBox('update')
 Update easydropdown with the underlying input value.
 + .val()
 Get selected value.
